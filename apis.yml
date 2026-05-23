@@ -1,0 +1,276 @@
+aid: sumologic
+url: https://raw.githubusercontent.com/api-evangelist/sumologic/refs/heads/main/apis.yml
+name: Sumo Logic
+kind: company
+description: >-
+  Sumo Logic is a cloud-native log analytics, observability, and security
+  platform. The Sumo Logic platform ingests logs, metrics, and traces from
+  cloud and on-premise sources and exposes a deep REST API covering search
+  jobs, dashboards, metrics, monitors and alerts, content management, roles,
+  users, service accounts, collectors, connections, partitions, lookup tables,
+  SAML configuration, traces and span analytics, and Cloud SIEM / Cloud SOAR.
+  Sumo Logic operates regional deployments and surfaces a deployment-specific
+  API endpoint for each one (us1, us2, eu, au, ca, de, jp, in, kr, and fed for
+  US public sector). Authentication is via Access ID and Access Key (HTTP
+  Basic) or bearer-style service account credentials.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Logs
+  - Observability
+  - SIEM
+  - SOAR
+  - Metrics
+  - Cloud Security
+  - Log Analytics
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis:
+  - aid: sumologic:rest-us1
+    name: Sumo Logic REST API (US1)
+    description: >-
+      Sumo Logic REST API for the US1 deployment. Endpoint surface spans
+      search jobs, dashboards, metrics, monitors, content management, roles,
+      users, collectors, connections, partitions, lookup tables, SAML
+      configuration, traces, and Cloud SIEM / Cloud SOAR.
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.sumologic.com
+    tags:
+      - REST
+      - US1
+      - Logs
+      - Metrics
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:rest-us2
+    name: Sumo Logic REST API (US2)
+    description: Sumo Logic REST API for the US2 deployment.
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.us2.sumologic.com
+    tags:
+      - REST
+      - US2
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:rest-eu
+    name: Sumo Logic REST API (EU)
+    description: Sumo Logic REST API for the EU (Ireland) deployment.
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.eu.sumologic.com
+    tags:
+      - REST
+      - EU
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:rest-au
+    name: Sumo Logic REST API (AU)
+    description: Sumo Logic REST API for the AU (Australia) deployment.
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.au.sumologic.com
+    tags:
+      - REST
+      - AU
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:rest-de
+    name: Sumo Logic REST API (DE)
+    description: Sumo Logic REST API for the DE (Germany) deployment.
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.de.sumologic.com
+    tags:
+      - REST
+      - DE
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:rest-jp
+    name: Sumo Logic REST API (JP)
+    description: Sumo Logic REST API for the JP (Japan) deployment.
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.jp.sumologic.com
+    tags:
+      - REST
+      - JP
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:rest-ca
+    name: Sumo Logic REST API (CA)
+    description: Sumo Logic REST API for the CA (Canada) deployment.
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.ca.sumologic.com
+    tags:
+      - REST
+      - CA
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:rest-in
+    name: Sumo Logic REST API (IN)
+    description: Sumo Logic REST API for the IN (India) deployment.
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.in.sumologic.com
+    tags:
+      - REST
+      - IN
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:rest-kr
+    name: Sumo Logic REST API (KR)
+    description: Sumo Logic REST API for the KR (South Korea) deployment.
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.kr.sumologic.com
+    tags:
+      - REST
+      - KR
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:rest-fed
+    name: Sumo Logic REST API (FED)
+    description: >-
+      Sumo Logic REST API for the FED deployment, serving US Federal customers
+      (FedRAMP).
+    humanURL: https://www.sumologic.com/help/docs/api/
+    baseURL: https://api.fed.sumologic.com
+    tags:
+      - REST
+      - FED
+      - FedRAMP
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/
+  - aid: sumologic:search-job
+    name: Sumo Logic Search Job API
+    description: >-
+      Asynchronous search job API used to launch log searches, poll for state,
+      retrieve messages and aggregate records, and pause/cancel running jobs.
+    humanURL: https://www.sumologic.com/help/docs/api/search-job/
+    baseURL: https://api.sumologic.com/api/v1/search/jobs
+    tags:
+      - Search
+      - Logs
+      - Jobs
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/search-job/
+  - aid: sumologic:dashboards
+    name: Sumo Logic Dashboards API
+    description: >-
+      Endpoints for creating, retrieving, updating, and deleting dashboards
+      and dashboard panels.
+    humanURL: https://www.sumologic.com/help/docs/api/dashboards/
+    baseURL: https://api.sumologic.com
+    tags:
+      - Dashboards
+      - Visualisation
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/dashboards/
+  - aid: sumologic:monitors
+    name: Sumo Logic Monitors API
+    description: >-
+      Monitor management API for creating logs and metrics monitors,
+      configuring conditions, and routing to notification channels including
+      email, Slack, PagerDuty, and webhook.
+    humanURL: https://www.sumologic.com/help/docs/api/monitors/
+    baseURL: https://api.sumologic.com
+    tags:
+      - Monitors
+      - Alerts
+      - Notifications
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/monitors/
+  - aid: sumologic:collectors
+    name: Sumo Logic Collectors API
+    description: >-
+      Endpoints for managing installed and hosted collectors, their sources,
+      and configuration.
+    humanURL: https://www.sumologic.com/help/docs/api/collector-management/
+    baseURL: https://api.sumologic.com
+    tags:
+      - Collectors
+      - Ingestion
+      - Sources
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/collector-management/
+  - aid: sumologic:content
+    name: Sumo Logic Content Management API
+    description: >-
+      Asynchronous import, export, copy, move, and delete operations across
+      the user content hierarchy (folders, dashboards, searches, lookup
+      tables).
+    humanURL: https://www.sumologic.com/help/docs/api/content-management/
+    baseURL: https://api.sumologic.com
+    tags:
+      - Content
+      - Folders
+      - Import/Export
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/content-management/
+  - aid: sumologic:cloud-siem
+    name: Sumo Logic Cloud SIEM API
+    description: >-
+      Cloud SIEM API for managing entities, insights, signals, and rules used
+      for security analytics and threat detection.
+    humanURL: https://www.sumologic.com/help/docs/api/cloud-siem/
+    baseURL: https://api.sumologic.com
+    tags:
+      - SIEM
+      - Security
+      - Threat Detection
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/cloud-siem/
+  - aid: sumologic:cloud-soar
+    name: Sumo Logic Cloud SOAR API
+    description: >-
+      Cloud SOAR API for security orchestration, automation, and response
+      playbooks, incidents, and actions.
+    humanURL: https://www.sumologic.com/help/docs/api/cloud-soar/
+    baseURL: https://api.sumologic.com
+    tags:
+      - SOAR
+      - Security
+      - Automation
+    properties:
+      - type: Documentation
+        url: https://www.sumologic.com/help/docs/api/cloud-soar/
+common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/sumo-logic
+  - type: Website
+    url: https://www.sumologic.com/
+  - type: Documentation
+    url: https://www.sumologic.com/help/docs/api/
+  - type: GitHub
+    url: https://github.com/SumoLogic
+  - type: Status
+    url: https://status.sumologic.com/
+  - type: Plans
+    url: plans/sumologic-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/sumologic-rate-limits.yml
+  - type: FinOps
+    url: finops/sumologic-finops.yml
+integrations:
+  - name: AWS
+  - name: Azure
+  - name: GCP
+  - name: Kubernetes
+  - name: Slack
+  - name: PagerDuty
+  - name: ServiceNow
+  - name: Jira
+  - name: Terraform
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
