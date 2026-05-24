@@ -1,0 +1,323 @@
+openapi: 3.1.0
+info:
+  title: Sumo Logic REST API
+  description: |
+    Sumo Logic is a cloud-native log analytics, observability, and security
+    platform. The REST API exposes search jobs, dashboards, metrics, monitors and
+    alerts, content management, roles, users, collectors, connections, partitions,
+    lookup tables, SAML configuration, traces, and Cloud SIEM / Cloud SOAR.
+
+    Sumo Logic operates multiple regional deployments. Each deployment exposes a
+    deployment-specific API endpoint; the `servers` section below enumerates them.
+    Authentication uses HTTP Basic with the Access ID as username and Access Key as
+    password, or service-account credentials.
+  version: "1.0.0"
+  contact:
+    name: Sumo Logic Help
+    url: https://www.sumologic.com/help/docs/api/
+  license:
+    name: Proprietary
+servers:
+  - url: https://api.sumologic.com/api
+    description: US1 deployment
+  - url: https://api.us2.sumologic.com/api
+    description: US2 deployment
+  - url: https://api.eu.sumologic.com/api
+    description: EU (Dublin) deployment
+  - url: https://api.au.sumologic.com/api
+    description: Australia (Sydney) deployment
+  - url: https://api.ca.sumologic.com/api
+    description: Canada (Montreal) deployment
+  - url: https://api.de.sumologic.com/api
+    description: Germany (Frankfurt) deployment
+  - url: https://api.jp.sumologic.com/api
+    description: Japan (Tokyo) deployment
+  - url: https://api.in.sumologic.com/api
+    description: India (Mumbai) deployment
+  - url: https://api.kr.sumologic.com/api
+    description: South Korea (Seoul) deployment
+  - url: https://api.fed.sumologic.com/api
+    description: US Federal (FedRAMP) deployment
+security:
+  - basicAuth: []
+tags:
+  - name: Search Jobs
+  - name: Dashboards
+  - name: Collectors
+  - name: Users
+  - name: Roles
+  - name: Monitors
+  - name: Content
+paths:
+  /v1/search/jobs:
+    post:
+      tags: [Search Jobs]
+      summary: Create a search job
+      operationId: createSearchJob
+      responses:
+        '202':
+          description: Search job accepted
+  /v1/search/jobs/{searchJobId}:
+    parameters:
+      - in: path
+        name: searchJobId
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Search Jobs]
+      summary: Get search job status
+      operationId: getSearchJobStatus
+      responses:
+        '200':
+          description: Current search job status
+    delete:
+      tags: [Search Jobs]
+      summary: Delete a search job
+      operationId: deleteSearchJob
+      responses:
+        '200':
+          description: Search job deleted
+  /v1/search/jobs/{searchJobId}/messages:
+    parameters:
+      - in: path
+        name: searchJobId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: offset
+        schema:
+          type: integer
+      - in: query
+        name: limit
+        schema:
+          type: integer
+    get:
+      tags: [Search Jobs]
+      summary: Page through messages produced by a search job
+      operationId: getSearchJobMessages
+      responses:
+        '200':
+          description: Page of messages
+  /v1/search/jobs/{searchJobId}/records:
+    parameters:
+      - in: path
+        name: searchJobId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: offset
+        schema:
+          type: integer
+      - in: query
+        name: limit
+        schema:
+          type: integer
+    get:
+      tags: [Search Jobs]
+      summary: Page through records produced by a search job
+      operationId: getSearchJobRecords
+      responses:
+        '200':
+          description: Page of records
+  /v2/dashboards:
+    get:
+      tags: [Dashboards]
+      summary: List dashboards
+      operationId: listDashboards
+      responses:
+        '200':
+          description: A list of dashboards
+    post:
+      tags: [Dashboards]
+      summary: Create a dashboard
+      operationId: createDashboard
+      responses:
+        '200':
+          description: The created dashboard
+  /v2/dashboards/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Dashboards]
+      summary: Get a dashboard
+      operationId: getDashboard
+      responses:
+        '200':
+          description: A dashboard object
+    put:
+      tags: [Dashboards]
+      summary: Update a dashboard
+      operationId: updateDashboard
+      responses:
+        '200':
+          description: The updated dashboard
+    delete:
+      tags: [Dashboards]
+      summary: Delete a dashboard
+      operationId: deleteDashboard
+      responses:
+        '204':
+          description: Dashboard deleted
+  /v1/collectors:
+    get:
+      tags: [Collectors]
+      summary: List collectors
+      operationId: listCollectors
+      responses:
+        '200':
+          description: A list of collectors
+    post:
+      tags: [Collectors]
+      summary: Create a collector
+      operationId: createCollector
+      responses:
+        '201':
+          description: The created collector
+  /v1/collectors/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+    get:
+      tags: [Collectors]
+      summary: Get a collector
+      operationId: getCollector
+      responses:
+        '200':
+          description: A collector
+    put:
+      tags: [Collectors]
+      summary: Update a collector
+      operationId: updateCollector
+      responses:
+        '200':
+          description: The updated collector
+    delete:
+      tags: [Collectors]
+      summary: Delete a collector
+      operationId: deleteCollector
+      responses:
+        '200':
+          description: Collector deleted
+  /v1/users:
+    get:
+      tags: [Users]
+      summary: List users
+      operationId: listUsers
+      responses:
+        '200':
+          description: A list of users
+    post:
+      tags: [Users]
+      summary: Create a user
+      operationId: createUser
+      responses:
+        '201':
+          description: The created user
+  /v1/users/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Users]
+      summary: Get a user
+      operationId: getUser
+      responses:
+        '200':
+          description: A user
+    put:
+      tags: [Users]
+      summary: Update a user
+      operationId: updateUser
+      responses:
+        '200':
+          description: The updated user
+    delete:
+      tags: [Users]
+      summary: Delete a user
+      operationId: deleteUser
+      responses:
+        '204':
+          description: User deleted
+  /v1/roles:
+    get:
+      tags: [Roles]
+      summary: List roles
+      operationId: listRoles
+      responses:
+        '200':
+          description: A list of roles
+    post:
+      tags: [Roles]
+      summary: Create a role
+      operationId: createRole
+      responses:
+        '201':
+          description: The created role
+  /v1/monitors:
+    get:
+      tags: [Monitors]
+      summary: List monitors
+      operationId: listMonitors
+      responses:
+        '200':
+          description: A list of monitors
+    post:
+      tags: [Monitors]
+      summary: Create a monitor
+      operationId: createMonitor
+      responses:
+        '201':
+          description: The created monitor
+  /v2/content/folders:
+    post:
+      tags: [Content]
+      summary: Create a content folder
+      operationId: createFolder
+      responses:
+        '200':
+          description: The created folder
+  /v2/content/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Content]
+      summary: Get a content item
+      operationId: getContentItem
+      responses:
+        '200':
+          description: Content item
+    delete:
+      tags: [Content]
+      summary: Delete a content item
+      operationId: deleteContentItem
+      responses:
+        '200':
+          description: Content item deleted
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: |
+        HTTP Basic Authentication. Use your Sumo Logic Access ID as username and
+        the corresponding Access Key as password. Service account tokens may also
+        be used. Generate credentials in the Sumo Logic UI under Administration
+        > Security > Access Keys.
